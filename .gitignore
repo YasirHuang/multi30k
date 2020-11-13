@@ -1,0 +1,9 @@
+original/Annotations
+original/Sentences
+original/flickr30k_images.tar.gz
+image_features/flickr30k_train_resnet50_cnn*
+image_features/flickr30k_valid_resnet50_cnn*
+image_features/flickr30k_test_resnet50_cnn*
+image_features/bounding_box/flickr30k_train_resnet50_boundingbox_global.npy
+image_features/bounding_box/flickr30k_val_resnet50_boundingbox_global.npy
+image_features/bounding_box/flickr30k_test_resnet50_boundingbox_global.npy
