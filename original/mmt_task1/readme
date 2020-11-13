@@ -1,0 +1,4 @@
+1. fix the '&amp;', '&amp,' with '&' which apeared in train.en/de
+2. fix sentence 182897345 'C U B S.' to 'C U B S .'
+	2144846312 'adult'' to 'adult ''
+	2324804923 'Q & A.' to 'Q & A .'
