@@ -1,0 +1,12 @@
+structure:
+.
+├── image_features
+├── original
+├── README
+└── task1_fixed_by_task2
+
+3 directories, 1 file
+
+image_features directory contains several big sized image feature files which extract with ResNet storing with numpy format ".npy".
+original directory contains the original datas of Multi30K (task1 sentences/task2 sentences/images/splits/annotated Flickr30K entities files(annotations.zip))
+task1_fixed_by_task2 contains the Makefile which make all processed data(tokenize->lowercase->bpe->tag json->......)

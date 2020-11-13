@@ -1,0 +1,10 @@
+structure:
+.
+├── [ 28M]  annotations.zip
+├── [4.1G]  flickr30k_images.tar.gz
+├── [4.0K]  mmt_task1
+├── [4.0K]  mmt_task2
+└── [4.0K]  splits
+
+3 directories, 2 files
+	annotations.zip and flickr30k_image.tar.gz are big size file. We backup them in a different way.
