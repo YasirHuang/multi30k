@@ -9,3 +9,9 @@ image_features/bounding_box/flickr30k_val_resnet50_boundingbox_global.npy
 image_features/bounding_box/flickr30k_test_resnet50_boundingbox_global.npy
 image_features/bounding_box/*.npy
 image_features/bounding_box/.ipynb_checkpoints
+task1_fixed_by_task2/*.en
+task1_fixed_by_task2/*.de
+task1_fixed_by_task2/*.fr
+task1_fixed_by_task2/*.cs
+task1_fixed_by_task2/*.json
+task1_fixed_by_task2/vocab.*
