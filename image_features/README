@@ -1,0 +1,21 @@
+file structure:
+.
+├── [4.0K]  bounding_box
+│   ├── [ 79M]  flickr30k_test_resnet50_boundingbox_global.npy
+│   ├── [2.2G]  flickr30k_train_resnet50_boundingbox_global.npy
+│   ├── [ 80M]  flickr30k_val_resnet50_boundingbox_global.npy
+│   ├── [2.6K]  read_boundingbox_feature.ipynb
+│   └── [ 988]  tmp.jpg
+├── [7.8M]  flickr30k_test_resnet50_cnn_features_global.npy
+├── [383M]  flickr30k_test_resnet50_cnn_features_local.npy
+├── [227M]  flickr30k_train_resnet50_cnn_features_global.npy
+├── [ 11G]  flickr30k_train_resnet50_cnn_features_local.npy
+├── [7.9M]  flickr30k_valid_resnet50_cnn_features_global.npy
+└── [388M]  flickr30k_valid_resnet50_cnn_features_local.npy
+
+1 directory, 11 files
+
+This directory contains 9 big-sized image feature files.
+We keep the file structure here, and store datas in a different place.
+We share the link of the datas:
+
