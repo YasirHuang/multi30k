@@ -1,0 +1,4 @@
+1. fix the '&amp;', '&amp,' with '&' which appears in train.en/de/cs, train.fr is exactly the same with train.fixed.fr
+2. fix sentence 182897345 'C U B S.' to 'C U B S .'
+     2144846312 'adult'' to 'adult ''
+     2324804923 'Q & A.' to 'Q & A .'
