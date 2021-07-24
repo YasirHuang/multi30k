@@ -11,7 +11,7 @@ SCRIPTS_DIR=~/work/tools
 # ORIGINAL_DATA_PATH is the path of Multi30K data path, which contains "mmt_task1", "mmt_task2", "splits", "flickr30k_images", "Annotations" and "Sentences"
 ORIGINAL_DATA_PATH=/home/xhuang/work/corpus/multi30k/original
 # SOURCE_DIR is the path of Multi30K mmt_task1 original data directory, which contains "train/val/test2016.en/de"
-SOURCE_DIR=${ORIGINAL_DATA_PATH}/mmt_task1
+SOURCE_DIR=${ORIGINAL_DATA_PATH}/mmt_task1/raw
 # SPLITS_DIR
 SPLITS_DIR=${ORIGINAL_DATA_PATH}/splits
 # ANNOTATED_SENTENCE_PATH
@@ -31,7 +31,11 @@ KEY_WORD_POS_LIST_FILE=${OUT_DIR}/key_word_pos_list.txt
 # original data file prefixes, include train/val/test
 TRAIN_PREFIX=train.fixed
 VAL_PREFIX=val
-TEST_PREFIX=test2016
+TEST_2016_PREFIX=test_2016_flickr
+TEST_2017_PREFIX=test_2017_flickr
+TEST_2018_PREFIX=test_2018_flickr
+TEST_MSCOCO_PREFIX=test_2017_mscoco
+TEST_PREFIX=${TEST_2016_PREFIX} ${TEST_2017_PREFIX} ${TEST_2018_PREFIX} ${TEST_MSCOCO_PREFIX}
 VOCAB_PREFIX=vocab
 # splits file names
 TRAIN_SPLITS=train_images.txt
