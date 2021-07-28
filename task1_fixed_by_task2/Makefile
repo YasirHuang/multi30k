@@ -13,14 +13,14 @@ ORIGINAL_DATA_PATH=../original
 # SOURCE_DIR is the path of Multi30K mmt_task1 original data directory, which contains "train/val/test2016.en/de"
 SOURCE_DIR=${ORIGINAL_DATA_PATH}/mmt_task1/raw
 # SPLITS_DIR
-SPLITS_DIR=${ORIGINAL_DATA_PATH}/splits
+SPLITS_DIR=${ORIGINAL_DATA_PATH}/image_splits
 # ANNOTATED_SENTENCE_PATH
 ANNOTATED_DATA=${ORIGINAL_DATA_PATH}/annotations.zip
 ANNOTATED_SENTENCE_PATH=${ORIGINAL_DATA_PATH}/Sentences
 # image bounding box annotations dir (useless)
 # BOUNDING_BOX_ANNOTATION_PATH=${ORIGINAL_DATA_PATH}/Annotations
 # OUT_DIR is the path of the outputs of this script, default "./"
-OUT_DIR=.
+OUT_DIR=./tmp
 # languages to be processed, default: en, de. "fr" to be added.
 LANGS=en de cs fr
 JSON_OUT_SUFFIX=en.json
@@ -38,8 +38,8 @@ TEST_MSCOCO_PREFIX=test_2017_mscoco
 TEST_PREFIX=${TEST_2016_PREFIX} ${TEST_2017_PREFIX} ${TEST_2018_PREFIX} ${TEST_MSCOCO_PREFIX}
 VOCAB_PREFIX=vocab
 # splits file names
-TRAIN_SPLITS=train_images.txt
-VAL_SPLITS=val_images.txt
+TRAIN_SPLITS=train.txt
+VAL_SPLITS=val.txt
 TEST_2016_SPLIT=test_2016_flickr.txt
 TEST_2017_SPLIT=test_2017_flickr.txt
 TEST_2018_SPLIT=test_2018_flickr.txt
@@ -142,8 +142,8 @@ apply_bpe:
 vocab:
 	for l in $(LANGS); do \
 		echo "create vocabs for language: $$l"; \
-		in_file_prefix=${OUT_DIR}/${TRAIN_PREFIX}; \
-		out_file_prefix=${OUT_DIR}/${VOCAB_PREFIX}; \
+		in_file_prefix=${TRAIN_PREFIX}; \
+		out_file_prefix=${VOCAB_PREFIX}; \
 		for s in ${SYMBOLS}; do \
 			in_file_prefix=$$in_file_prefix.$$s; \
 			out_file_prefix=$$out_file_prefix.$$s; \
@@ -178,7 +178,7 @@ extract_entities:
 		--annoted_sentence_path=${ANNOTATED_SENTENCE_PATH} \
 		--output_file=${EXTRACT_OUT_VAL}
 	python ${SCRIPTS_DIR}/extract_m30k_task1_noted_sentences.py \
-		--split_file=${SPLITS_DIR}/${TEST_2016_SPLITS} \
+		--split_file=${SPLITS_DIR}/${TEST_2016_SPLIT} \
 		--sentences_file=${EXTRACT_IN_TEST} \
 		--annoted_sentence_path=${ANNOTATED_SENTENCE_PATH} \
 		--output_file=${EXTRACT_OUT_TEST}
@@ -200,7 +200,7 @@ add_tag_to_json_data:
 		--key_word_list_file=${KEY_WORD_LIST_FILE} \
 		--key_word_pos_list_file=${KEY_WORD_POS_LIST_FILE}
 	python ${SCRIPTS_DIR}/add_tag_to_json_data.py \
-		--split_file=${SPLITS_DIR}/${TEST_2016_SPLITS} \
+		--split_file=${SPLITS_DIR}/${TEST_2016_SPLIT} \
 		--json_file=${EXTRACT_OUT_TEST} \
 		--out_json_file=${ADD_OUT_TEST} \
 		--key_word_list_file=${KEY_WORD_LIST_FILE} \
@@ -222,9 +222,9 @@ bpe_to_json:
 		--out_json_file=${BPE_OUT_VAL}
 	python ${SCRIPTS_DIR}/apply_bpe_to_aligned_data.py \
 		--bpe_sentence_file=${TEST_JSON_OUT_PREFIX}.${BPE_SYMBOL}.en \
-		--split_file=${SPLITS_DIR}/${TEST_2016_SPLITS} \
+		--split_file=${SPLITS_DIR}/${TEST_2016_SPLIT} \
 		--json_file=${ADD_OUT_TEST} \
 		--out_json_file=${BPE_OUT_TEST}
 
 clean:
-	rm *$(BPE_SYMBOL)* *$(LOWER_SYMBOL)* *$(TOKEN_SYMBOL)*
+	rm ${OUT_DIR}/*$(BPE_SYMBOL)* ${OUT_DIR}/*$(LOWER_SYMBOL)* ${OUT_DIR}/*$(TOKEN_SYMBOL)*

@@ -15,3 +15,4 @@ task1_fixed_by_task2/*.fr
 task1_fixed_by_task2/*.cs
 task1_fixed_by_task2/*.json
 task1_fixed_by_task2/vocab.*
+task1_fixed_by_task2/tmp
