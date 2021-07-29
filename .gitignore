@@ -16,3 +16,9 @@ task1_fixed_by_task2/*.cs
 task1_fixed_by_task2/*.json
 task1_fixed_by_task2/vocab.*
 task1_fixed_by_task2/tmp
+task1_parsed/*.en
+task1_parsed/*.de
+task1_parsed/*.fr
+task1_parsed/*.cs
+task1_parsed/vocab.*
+
