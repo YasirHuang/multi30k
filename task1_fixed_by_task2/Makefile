@@ -20,7 +20,7 @@ ANNOTATED_SENTENCE_PATH=${ORIGINAL_DATA_PATH}/Sentences
 # image bounding box annotations dir (useless)
 # BOUNDING_BOX_ANNOTATION_PATH=${ORIGINAL_DATA_PATH}/Annotations
 # OUT_DIR is the path of the outputs of this script, default "./"
-OUT_DIR=./tmp
+OUT_DIR=.
 # languages to be processed, default: en, de. "fr" to be added.
 LANGS=en de cs fr
 JSON_OUT_SUFFIX=en.json
